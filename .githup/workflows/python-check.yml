@@ -1,0 +1,28 @@
+name: Python Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Python syntax
+        run: |
+          python -m py_compile calculator.py
+          python -m py_compile password_generator.py
+          python -m py_compile number_converter.py
+          python -m py_compile text_counter.py
+
+      - name: Run success message
+        run: echo "All Python files passed successfully!"
