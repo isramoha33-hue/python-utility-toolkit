@@ -13,8 +13,8 @@ def main():
     try:
         length = int(input("Enter password length: "))
 
-        if length < 4:
-            print("Password length must be at least 4.")
+        if length < 5:
+            print("Password length must be at least 5.")
             return
 
         password = generate_password(length)
